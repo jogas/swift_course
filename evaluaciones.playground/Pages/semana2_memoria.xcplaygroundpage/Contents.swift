@@ -2,7 +2,7 @@
 
 import UIKit
 
-let numeros = 1...100
+let numeros = 0...100
 
 var div5 = ""
 var par = ""
@@ -17,7 +17,7 @@ for i in numeros{
     
     impar = i % 2 == 1 ? "impar!!!" : ""
     
-    range = i > 30 && i < 40 ? "Viva Swift!!!" : ""
+    range = i >= 30 && i <= 40 ? "Viva Swift!!!" : ""
     
     print("# \(i) \(div5) \(par) \(impar) \(range)")
     
