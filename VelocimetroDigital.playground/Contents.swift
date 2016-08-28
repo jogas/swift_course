@@ -18,32 +18,32 @@ class Auto{
     var velocidad: Velocidades
     
     init(){
-        self.velocidad = Velocidades.Apagado
+        self.velocidad = Velocidades( velocidadInicial: .Apagado )
     }
     
-    func cambioDeVelocidad(actual : Int, velocidadEnCadena: String)->(Int,String) {
+    func cambioDeVelocidad()->(actual : Int, velocidadEnCadena: String) {
         var cambioVelocidad: (Int,String) = (0,"")
         
         switch self.velocidad {
             
-        case Velocidades.Apagado:
-            self.velocidad = Velocidades.VelocidadBaja
+        case .Apagado:
+            self.velocidad = .VelocidadBaja
             cambioVelocidad = (Velocidades.Apagado.rawValue,"Apagado")
         
-        case Velocidades.VelocidadBaja:
-            self.velocidad = Velocidades.VelocidadMedia
+        case .VelocidadBaja:
+            self.velocidad = .VelocidadMedia
             cambioVelocidad = (Velocidades.VelocidadBaja.rawValue,"Velocidad baja")
         
-        case Velocidades.VelocidadMedia:
-            self.velocidad = Velocidades.VelocidadAlta
+        case .VelocidadMedia:
+            self.velocidad = .VelocidadAlta
             cambioVelocidad = (Velocidades.VelocidadMedia.rawValue,"Velocidad media")
             
-        case Velocidades.VelocidadAlta:
-            self.velocidad = Velocidades.VelocidadMedia
+        case .VelocidadAlta:
+            self.velocidad = .VelocidadMedia
             cambioVelocidad = (Velocidades.VelocidadAlta.rawValue,"Velocidad alta")
             
         default:
-            self.velocidad = Velocidades.VelocidadBaja
+            self.velocidad = .VelocidadBaja
             cambioVelocidad = (Velocidades.VelocidadBaja.rawValue,"Opción no aceptable, se regresará a velocidad baja")
         }
         
@@ -56,7 +56,7 @@ var auto = Auto()
 var velocidadAuto: (Int,String) = (0,"")
 
 for i in 1...20{
-    velocidadAuto = auto.cambioDeVelocidad(0, velocidadEnCadena: "")
+    velocidadAuto = auto.cambioDeVelocidad()
     print( "\(velocidadAuto.0), " + velocidadAuto.1 )
 }
 
